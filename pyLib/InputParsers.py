@@ -4,7 +4,7 @@
 
 import numpy as np
 
-def FOOTpGeoParser(FileName,myEles=None):
+def FOOTpGeoParser(FileName,myEles=None,lDebug=False):
     '''
     parser of the FOOT.geo file.
     myEles is a list of elements for which the info should be
@@ -75,4 +75,46 @@ def FOOTpGeoParser(FileName,myEles=None):
     print("...returning infos for %d sub-detectors;"%(len(BaseNames)))
     return BaseNames, BaseLabs, Coords, Angles
     
+def CaloGeoParser(FileName,grab="crys",lDebug=False):
+    '''
+    parser of the TACAdetector.geo file.
+    For the time being, it extracts positions/angles of crystals or
+      modules - NOT BOTH AT THE SAME TIME
+    '''
+    IDs=[]; Coords=[]; Angles=[]
+    if (grab.upper().startswith("CRY")):
+        myWhat="crystal"
+        myGrab="CrystalId"
+    elif (grab.upper().startswith("MOD")):
+        myWhat="module"
+        myGrab="ModuleId"
+    else:
+        print("...grabbing %s: what is it?"%(grab))
+        exit(1)
+        
+    print("grabbing %s infos in file %s..."%(myWhat,FileName))
+    ff=open(FileName,"r")
+    lRead=False
+    for tmpLine in ff.readlines():
+        if (tmpLine.startswith(myGrab)):
+            lRead=True
+            IDs.append(int(tmpLine.split()[1]))
+        elif (lRead and tmpLine.startswith("PositionX:")):
+            data=tmpLine.split()
+            Coords.append(np.array(data[1:6:2]))
+        elif (lRead and tmpLine.startswith("TiltX:")):
+            data=tmpLine.split()
+            Angles.append(np.array(data[1:6:2]))
+            lRead=False
+    ff.close()
+    if (len(Coords)!=len(IDs)):
+        print("...problem in parsing: found %d coordinate sets and %d IDs!"%(len(Coords),len(IDs)))
+        exit(1)
+    if (len(Angles)!=len(IDs)):
+        print("...problem in parsing: found %d angle sets and %d IDs!"%(len(Angles),len(IDs)))
+        exit(1)
     
+    print("...done: acquired %d %s data sets;"%(len(IDs),myWhat))
+    return IDs, Coords, Angles
+            
+            

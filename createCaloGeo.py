@@ -8,10 +8,12 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "externals/pyFLUKAgeo"))
 from grid import Grid
 from geometry import acquireGeometries, Geometry
 sys.path.append(os.path.join(os.path.dirname(__file__), "pyLib"))
-from InputParsers import FOOTpGeoParser
+from InputParsers import FOOTpGeoParser, CaloGeoParser
     
 def testActualGeo(lDebug=True):
-    BaseNames, BaseLabs, Coords, Angles = FOOTpGeoParser("/media/sf_vb_share/docs_FLUKAcalo/FOOT.geo",myEles="Calo")
+    BaseNames, BaseLabs, GlobCoords, GlobAngles = FOOTpGeoParser("/media/sf_vb_share/docs_FLUKAcalo/FOOT.geo",myEles="Calo")
+    crysIDs, crysCoords, crysAngles = CaloGeoParser("/media/sf_vb_share/docs_FLUKAcalo/TACAdetector.geo",grab="crys")
+    modIDs, modCoords, modAngles = CaloGeoParser("/media/sf_vb_share/docs_FLUKAcalo/TACAdetector.geo",grab="mod")
 
 def testRegularSingleProto(lDebug=False):
     # user input
