@@ -24,7 +24,7 @@ END
 *
 GEOEND
 *
-* BGO material: Bismuth germanium oxide Bi4_Ge3_O12
+* BGO material (definition from Flair): Bismuth germanium oxide Bi4_Ge3_O12
 * ..+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....
 MATERIAL          32               5.323                              GERMANIU
 MATERIAL          83               9.747                              BISMUTH
