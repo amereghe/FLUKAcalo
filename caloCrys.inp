@@ -24,7 +24,14 @@ END
 *
 GEOEND
 *
+* BGO material: Bismuth germanium oxide Bi4_Ge3_O12
+* ..+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....
+MATERIAL          32               5.323                              GERMANIU
+MATERIAL          83               9.747                              BISMUTH
+MATERIAL                            7.13                              BGO
+COMPOUND   -0.154126    OXYGEN  -0.17482  GERMANIU -0.671054   BISMUTHBGO
+*
 * ..+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....
 ASSIGNMA         AIR     OUTER
-ASSIGNMA      COPPER    CALOcr
+ASSIGNMA         BGO    CALOcr
 *
