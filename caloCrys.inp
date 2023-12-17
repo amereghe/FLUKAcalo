@@ -2,12 +2,12 @@
 GEOBEGIN                                                              COMBNAME
     0    0              Calo crystal
 *
-PLA  CALOcrFR   0.0  0.0 -1.0   0.0   0.0 -12.0
-PLA  CALOcrBK   0.0  0.0  1.0   0.0   0.0  12.0
-PLA  CALOcrTP   0.0  1.0 -0.02  0.0   0.8   0.0
-PLA  CALOcrBT   0.0 -1.0 -0.02  0.0  -0.8   0.0
-PLA  CALOcrLF   1.0  0.0 -0.01  1.0   0.0   0.0
-PLA  CALOcrRG  -1.0  0.0 -0.01 -1.0   0.0   0.0
+PLA  CALOcrFR    0.0   0.0 -1.0  0.0   0.0 -12.0
+PLA  CALOcrBK    0.0   0.0  1.0  0.0   0.0  12.0
+PLA  CALOcrTP    0.0  24.0 -0.4  0.0   1.25  0.0
+PLA  CALOcrBT    0.0 -24.0 -0.4  0.0  -1.25  0.0
+PLA  CALOcrLF   24.0   0.0 -0.4  1.25  0.0   0.0
+PLA  CALOcrRG  -24.0   0.0 -0.4 -1.25  0.0   0.0
 *
 END
 *
