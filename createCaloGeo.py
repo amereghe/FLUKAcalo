@@ -46,8 +46,8 @@ def testRegularSingleProto(lDebug=False):
 
     # - merge geometries
     mergedGeo=Geometry.MergeGeos(HiveGeo,GridGeo,lDebug=lDebug)
-    mergedGeo.echo("merged.inp")
+    mergedGeo.echo("calo.geo")
 
 if (__name__=="__main__"):
-    # testRegularSingleProto(lDebug=False)
-    testActualGeo(lDebug=True)
+    testRegularSingleProto(lDebug=False)
+    # testActualGeo(lDebug=True)
