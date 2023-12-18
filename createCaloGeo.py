@@ -31,7 +31,7 @@ def testRegularSingleProto(lDebug=False):
 
     # actual processing
     # - hive geometry
-    HiveGeo=Geometry.DefineHive_SphericalShell(R,R+dR,NR,-Tmax,Tmax,NT,-Pmax,Pmax,NP,lDebug=lDebug)
+    HiveGeo=Geometry.DefineHive_SphericalShell(R,R+dR,NR,-Tmax,Tmax,NT,-Pmax,Pmax,NP,defMat="AIR",lDebug=lDebug)
     if (lDebug):
         HiveGeo.echo("hive.inp")
 
